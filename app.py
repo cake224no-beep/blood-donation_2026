@@ -107,7 +107,10 @@ def update():
     data = read_data()
 
     data["currentNo"] = request.form["number"]
-    data["updateTime"] = datetime.now().strftime("%H:%M")
+
+    data["updateTime"] = datetime.now(
+        ZoneInfo("Asia/Taipei")
+    ).strftime("%H:%M")
 
     save_data(data)
 
